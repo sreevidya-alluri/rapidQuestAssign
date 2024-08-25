@@ -1,5 +1,5 @@
+// src/components/SalesChart.js
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Line } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -11,6 +11,7 @@ import {
     Tooltip,
     Legend,
 } from 'chart.js';
+import api from '../api'; // Import the configured Axios instance
 
 ChartJS.register(
     CategoryScale,
@@ -29,7 +30,8 @@ const SalesChart = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`/api/analytics/sales-over-time/${timeframe}`);
+                // Fetch data using the configured Axios instance
+                const response = await api.get(`/api/analytics/sales-over-time/${timeframe}`);
                 setSalesData(response.data);
             } catch (err) {
                 console.error('Error fetching sales data:', err);
