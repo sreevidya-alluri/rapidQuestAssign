@@ -9,7 +9,7 @@ function App() {
                 <h1>E-commerce Analytics Dashboard</h1>
             </header>
             <main>
-                <SalesChart />
+                <SalesChart/>
             </main>
         </div>
     );
